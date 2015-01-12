@@ -38,6 +38,21 @@ class Chisel
     return rendered_arr.join
   end
 
+  def find_and_change_lists(text)
+    arr_of_lines = breaker.break_and_clean_up_lines(text)
+    arr_of_lists = []
+
+    arr_of_lines.each do |line|
+      case
+      when line[0] == "*" && (line[-1] != "*")
+        arr_of_lists << unordered_list.render(line)
+      when line[0].to_i.is_a?(Numeric)
+        arr_of_lists << ordered_list.render(line)
+      end
+    end
+    return arr_of_lists
+  end
+
 
   def find_and_change_bold(text)
     is_opening_tag = true

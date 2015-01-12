@@ -27,6 +27,23 @@ class ChiselTest < Minitest::Test
     assert_equal "<h1>My Life in Desserts</h1>\n<p>You just *have* to try the cheesecake.</p>\n", chisel.parse_header_and_paragraph(input)
   end
 
+  def test_it_can_parse_an_unordered_list
+    input = "* Sushi"
+    assert_equal ["<ul>\n<li>Sushi</li>\n</ul>\n"], chisel.find_and_change_lists(input)
+  end
+
+  def test_it_can_parse_an_unordered_list_with_two_things
+    skip
+    input = "* Sushi
+    * Chocolate"
+    assert_equal ["<ul>\n<li>Sushi</li>\n<li>Chocolate</li>\n</ul>\n"], chisel.find_and_change_lists(input)
+  end
+
+  def test_it_can_parse_an_ordered_list
+    input = "1. Sushi"
+    assert_equal ["<ol>\n<li>Sushi</li>\n</ol>\n"], chisel.find_and_change_lists(input)
+  end
+
   def test_it_can_parse_a_bold_word
     input = "You just **have** to try the cheesecake."
     assert_equal [["<strong>have</strong>", 2]], chisel.find_and_change_bold(input)

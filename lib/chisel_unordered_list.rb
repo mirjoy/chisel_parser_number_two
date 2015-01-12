@@ -11,7 +11,7 @@ class UnorderedList
 
   def add_individual_lis(input_split_in_lines)
     input_split_in_lines.each do |line|
-      @final_lines << ("<li>" + line + "</li>\n")
+      @final_lines << ("<li>" + line.slice(2..line.length) + "</li>\n")
     end
   end
 

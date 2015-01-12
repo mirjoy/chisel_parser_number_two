@@ -11,12 +11,12 @@ class UnorderedListTest < Minitest::Test
   end
 
   def test_it_makes_a_one_line_list
-    input = "This is a string"
+    input = "* This is a string"
     assert_equal "<ul>\n<li>This is a string</li>\n</ul>\n", list.render(input)
   end
 
   def test_it_makes_a_two_line_list
-    input = "This is a string.\nThis is a second string."
+    input = "* This is a string.\n* This is a second string."
     assert_equal "<ul>\n<li>This is a string.</li>\n<li>This is a second string.</li>\n</ul>\n", list.render(input)
   end
 

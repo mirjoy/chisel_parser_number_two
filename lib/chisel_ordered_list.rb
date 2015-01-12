@@ -11,7 +11,7 @@ class OrderedList
 
   def add_individual_lis(input_split_in_lines)
     input_split_in_lines.each do |line|
-        @final_lines << ("<li>" + line + "</li>\n")
+        @final_lines << ("<li>" + line.slice(3..line.length) + "</li>\n")
       end
   end
 
