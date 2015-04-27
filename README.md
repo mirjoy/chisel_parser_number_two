@@ -1,1 +1,3 @@
-# chisel_parser_number_two
+# Chisel Parser Number Two
+
+A parser that takes in Markdown and converts it to HTML
